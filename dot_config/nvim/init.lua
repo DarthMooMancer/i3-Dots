@@ -8,6 +8,8 @@ Plug('neovim/nvim-lspconfig')
 Plug('nvim-treesitter/nvim-treesitter')
 Plug('hrsh7th/nvim-cmp')
 Plug('hrsh7th/cmp-nvim-lsp')
+Plug('catppuccin/nvim')
+Plug('norcalli/nvim-colorizer.lua')
 
 vim.call('plug#end')
 
@@ -44,14 +46,15 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "<C-n>", vim.cmd.Ex)
 vim.keymap.set("n", "<C-p>", ":FZF<CR>")
 
--- vim.g.mucomplete#eneable_auto_at_startup = 1
 vim.cmd "set bg=dark"
 vim.cmd "colorscheme quiet"
 vim.cmd "highlight Keyword gui=bold"
 vim.cmd "highlight Conditional gui=bold"
 vim.cmd "highlight Repeat gui=bold"
+vim.cmd "highlight Structure gui=bold,italic"
 vim.cmd "highlight Comment gui=italic"
 vim.cmd "highlight Constant guifg=#999999"
 vim.cmd "highlight NormalFloat guibg=#333331"
 vim.cmd "highlight Pmenu guifg=#FFFFFF guibg=#000000"
-vim.cmd "highlight StatusLine guibg=NONE guifg=#707070"
+vim.cmd "highlight Function gui=bold,italic guifg=#707070"
+vim.cmd "highlight StatusLine guibg=NONE guifg=#707070 gui=italic"

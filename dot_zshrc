@@ -6,7 +6,6 @@ export PLUGINS="$HOME/.config/zsh/"
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 export PATH=$PATH:~/lua-language-server/bin/
 export XDG_DESKTOP_PORTAL_BACKEND=xdg-desktop-portal-hyprland
-export TERM=xterm
 source <(fzf --zsh)
 
 autoload -U compinit; compinit
