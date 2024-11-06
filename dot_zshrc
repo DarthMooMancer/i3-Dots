@@ -5,6 +5,7 @@ SAVEHIST=1000
 export PLUGINS="$HOME/.config/zsh/"
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 export PATH=$PATH:~/lua-language-server/bin/
+export PATH=$PATH:$HOME/bin
 export XDG_DESKTOP_PORTAL_BACKEND=xdg-desktop-portal-hyprland
 source <(fzf --zsh)
 
@@ -31,6 +32,7 @@ autoload -Uz promptinit
 promptinit
 prompt pure
 
+nitch
 # Use ~~ as the trigger sequence instead of the default **
 export FZF_COMPLETION_TRIGGER='~~'
 

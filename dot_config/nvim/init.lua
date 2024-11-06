@@ -9,7 +9,7 @@ Plug('nvim-treesitter/nvim-treesitter')
 Plug('hrsh7th/nvim-cmp')
 Plug('hrsh7th/cmp-nvim-lsp')
 Plug('catppuccin/nvim')
-Plug('norcalli/nvim-colorizer.lua')
+Plug('ThePrimeagen/vim-be-good')
 
 vim.call('plug#end')
 
@@ -17,7 +17,7 @@ require("plugins")
 local options = {
   completeopt = { "menuone", "noselect", "noinsert", "popup" },
 	shiftwidth = 2,
-	expandtab = true,
+  expandtab = true,
 	softtabstop = 2,
 	tabstop = 2,
 	wrap = false,
@@ -47,14 +47,14 @@ vim.keymap.set("n", "<C-n>", vim.cmd.Ex)
 vim.keymap.set("n", "<C-p>", ":FZF<CR>")
 
 vim.cmd "set bg=dark"
-vim.cmd "colorscheme quiet"
+vim.cmd "colorscheme catppuccin-macchiato"
 vim.cmd "highlight Keyword gui=bold"
 vim.cmd "highlight Conditional gui=bold"
 vim.cmd "highlight Repeat gui=bold"
 vim.cmd "highlight Structure gui=bold,italic"
 vim.cmd "highlight Comment gui=italic"
-vim.cmd "highlight Constant guifg=#999999"
+-- vim.cmd "highlight Constant guifg=#999999"
 vim.cmd "highlight NormalFloat guibg=#333331"
-vim.cmd "highlight Pmenu guifg=#FFFFFF guibg=#000000"
-vim.cmd "highlight Function gui=bold,italic guifg=#707070"
-vim.cmd "highlight StatusLine guibg=NONE guifg=#707070 gui=italic"
+-- vim.cmd "highlight Pmenu guifg=#FFFFFF guibg=#000000"
+vim.cmd "highlight Function gui=bold,italic"  --guifg=#707070
+vim.cmd "highlight StatusLine guibg=NONE gui=italic"

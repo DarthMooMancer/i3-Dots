@@ -10,3 +10,35 @@ Once installed to copy my dots use - "chezmoi init --apply DarthMooMancer", excl
 In order to update the dots later on you can run:
 
 "chezmoi update"
+
+
+For neovim, I have downloaded the language servers manually instead of something like mason, so if you want automatic lsp setup you will have to setup mason yourself or manually install the servers yourself 
+
+LSP and NEOVIM
+--------------
+
+Lsp servers in config
+1. pyright = python lsp
+2. rust_analyzer = rust lsp
+3. jdtls = java lsp
+4. lua_ls = Lua lsp 
+
+I also use custom snippets along with the ones included with lsp. Instead of using an engine, i just use the builtin one from neovim.
+
+I also moved back to i3 so the last hyprland push is commit c0d3029 on November 1, 2024. Support for hyprland wont be updated only i3.
+
+PACKAGES NEEDED
+---------------
+
+    * acpi - i3blocks battery
+    * autotiling - i3 tiling - dwindle effect
+    * brightnessctl - changing brightness without sudo permissions as xbacklight only seems to work with root permissions
+    * fd - used with fzf
+    * i3-wm
+    * i3blocks
+    * i3lock
+    * jdtls 
+    * kitty
+    * neovim
+    * rofi
+    * zsh-pure-prompt

@@ -16,7 +16,8 @@ local snippets_by_filetype = {
     { trigger = 'class_public', body = 'public class ${1:name} {\n\t${0:pass}\n}'},
     { trigger = 'sysout', body = 'System.out.println(${1:name});'},
     { trigger = 'public', body = 'public ${1:void} ${2:name}(${3:args}) {\n\t${0:pass}\n}'},
-    { trigger = 'public_static', body = 'public static void main(String[] args) {\n\t${0:pass}\n}'},
+    { trigger = 'public_static_main', body = 'public static void main(String[] args) {\n\t${0:pass}\n}'},
+    { trigger = 'public_static', body = 'public static ${1:void} ${2:name}(${3:args}) {\n\t${0:pass}\n}'},
   },
 
   python = {
