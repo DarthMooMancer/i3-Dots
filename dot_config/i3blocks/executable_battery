@@ -1,0 +1,82 @@
+#!/bin/bash
+
+# Right click - perform a full chargemute
+if [[ "${BLOCK_BUTTON}" -eq 3 ]]; then
+  sudo tlp fullcharge > /dev/null
+fi
+
+batteryStatus=`acpi -b | awk '{print $3}' | tr -d ,`
+batteryPercent=`acpi -b | awk '{print $4}' | cut -d % -f 1`
+
+prettyPrintPercent(){
+    if [ $1 -lt 20 ]
+    then
+        icon="";
+    elif [ $1 -lt 40 ]
+    then
+        icon="";
+    elif [ $1 -lt 60 ]
+    then
+        icon="";
+    elif [ $1 -lt 80 ]
+    then
+        icon="";
+    else
+        icon=""
+    fi
+    eval "$2+='$icon $1%'";
+}
+
+percentColor(){
+    if [ $1 -lt 20 ]
+    then
+        # red
+        color="#dc322f"
+    elif [ $1 -lt 40 ]
+    then
+        # orange
+        color="#cb4b16"
+    elif [ $1 -lt 60 ]
+    then
+        # yellow
+        color="#b58900"
+    elif [ $1 -lt 80 ]
+    then
+        # cyan
+        color="#2aa198"
+    elif [ $1 -lt 101 ]
+    then
+        # blue (neutral)
+        color="#268bd2"
+    # >= 101 - charging
+    else
+        # green
+        color="#859900"
+    fi
+
+    eval "$2='$color'";
+}
+
+fullLabel=""
+prettyPrintPercent $batteryPercent fullLabel
+
+labelColor=""
+statusLabel=""
+
+if [ $batteryStatus == "Charging" ] # charging
+then
+    statusLabel=""
+    percentColor 101 labelColor
+elif [ $batteryStatus == "Discharging" ] # on battery power
+then
+    statusLabel=""
+    percentColor $batteryPercent labelColor
+else # paused - using only ac power
+    statusLabel=""
+    percentColor 100 labelColor
+fi
+
+echo "$statusLabel $fullLabel"; echo ""; echo "$labelColor";
+## TODO: on click trigger a full charge via
+## tlp fullcharge 0
+
