@@ -29,16 +29,19 @@ I also moved back to i3 so the last hyprland push is commit c0d3029 on November 
 
 PACKAGES NEEDED
 ---------------
+EASY INSTALL
+    $ yay -S acpi autotiling fd brightnessctl i3-wm i3blocks jdtls kitty neovim rofi zsh-pure-prompt
 
-    * acpi - i3blocks battery
-    * autotiling - i3 tiling - dwindle effect
-    * brightnessctl - changing brightness without sudo permissions as xbacklight only seems to work with root permissions
-    * fd - used with fzf
-    * i3-wm
-    * i3blocks
-    * i3lock
-    * jdtls 
-    * kitty
-    * neovim
-    * rofi
-    * zsh-pure-prompt
+acpi - i3blocks battery
+autotiling - i3 tiling - dwindle effect
+brightnessctl - changing brightness without sudo permissions as xbacklight only seems to work with root permissions
+fd - used with fzf
+i3-wm
+i3blocks
+i3lock
+jdtls 
+kitty
+neovim
+rofi
+zsh-pure-prompt
+
