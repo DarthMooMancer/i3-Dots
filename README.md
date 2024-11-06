@@ -23,9 +23,9 @@ Lsp servers in config
 3. jdtls = java lsp
 4. lua_ls = Lua lsp 
 
-I also use custom snippets along with the ones included with lsp. Instead of using an engine, i just use the builtin one from neovim.
+I also use custom snippets along with the ones included with lsp. Instead of using an engine, i just use the builtin one from neovim. However I do have an old dotfiles repo with snippets engine and mason. Here is the repo and the commit - https://github.com/DarthMooMancer/dotfiles-old/tree/b0e5eb402e01570056569994ebbc18b0b6143a7a
 
-I also moved back to i3 so the last hyprland push is commit c0d3029 on November 1, 2024. Support for hyprland wont be updated only i3.
+I also moved back to i3 so the last hyprland push is commit c0d3029 on November 1, 2024. Support for hyprland wont be updated only i3. 
 
 PACKAGES NEEDED and Setup
 -------------------------
