@@ -14,7 +14,7 @@ markup=pango
 
 [battery]
 command=~/.config/i3blocks/battery
-interval=30
+interval=10
 border=#8aadf4
 border_top=1
 border_right=0

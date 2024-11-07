@@ -8,7 +8,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 for_window [class="^.*"] border pixel 0
 gaps inner 5
-gaps outer 0
+gaps outer 2
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%-
@@ -122,7 +122,7 @@ client.background       #1e1e2e
 #### AutoStarts ####
 ####################
 
-exec_always feh --bg-fill ~/Pictures/Wallpapers/catalina_grey.jpg
+exec_always feh --bg-fill ~/Pictures/Wallpapers/Nord_waves.jpg
 exec_always autotiling
-exec_always picom --animations -b
+exec_always picom --animations
 exec_always xrandr --output HDMI-A-0 --mode 1920x1080 --rate 120.0 --right-of eDP 
