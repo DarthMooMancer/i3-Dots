@@ -43,6 +43,8 @@ border_bottom=0
 border_left=0
 
 [volume]
+# For the pulseaudio users
+# command=pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '\d+(?=%)' | head -n 1 
 command=awk -F"[][]" '/dB/ { print $2 }' <(amixer sget Master)
 interval=1
 label=<span color="#91d7e3">  </span>
