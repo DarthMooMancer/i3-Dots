@@ -9,6 +9,7 @@ Plug('nvim-treesitter/nvim-treesitter')
 Plug('hrsh7th/nvim-cmp')
 Plug('hrsh7th/cmp-nvim-lsp')
 Plug('catppuccin/nvim')
+Plug('norcalli/nvim-colorizer.lua')
 Plug('ThePrimeagen/vim-be-good')
 
 vim.call('plug#end')

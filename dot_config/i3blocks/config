@@ -8,29 +8,25 @@
 
 align=center
 separator=false
-color=#f8f8f2
+color=#cad3f5
 separator_block_width=15
 markup=pango
 
 [battery]
 command=~/.config/i3blocks/battery
 interval=30
-
-# [battery]
-# interval=2
-# color=#ff5555
-# border=#ff5555
-# border_top=1
-# border_right=0
-# border_bottom=0
-# border_left=0
+border=#8aadf4
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
 
 [wifi]
 command=iwgetid -r | tr '\n' ' ' && grep $(iwgetid -m | awk '{ printf "%s", $1 }') /proc/net/wireless | awk '{ printf "%i%\n", int($3 * 100 / 70) }'
-instance=wlp11s0f3u1
+instance=wlan0
 interval=5
-label=<span color="#ff79c6"> </span>
-border=#ff79c6
+label=<span color="#f5a97f"> </span>
+border=#f5a97f
 border_top=1
 border_right=0
 border_bottom=0
@@ -39,68 +35,38 @@ border_left=0
 [arch_update]
 command=pacman -Qq | wc -l
 interval=once
-label=<span color="#1793d1">  </span>
-border=#1793d1
-border_top=1
-border_right=0
-border_bottom=0
-border_left=0
-
-[home]
-command=df -h /home | awk 'FNR==2 { gsub(/[A-Za-z]/, ""); printf "%i<span color=\"#50fa7b\"> GiB</span>\n", $4 }'
-interval=3
-label=<span color="#50fa7b">  </span>
-border=#50fa7b
-border_top=1
-border_right=0
-border_bottom=0
-border_left=0
-
-[root]
-command=df -h / | awk 'FNR==2 { gsub(/[A-Za-z]/, ""); printf "%i<span color=\"#f1fa8c\"> GiB</span>\n", $4 }'
-interval=3
-label=<span color="#f1fa8c">  </span>
-border=#f1fa8c
-border_top=1
-border_right=0
-border_bottom=0
-border_left=0
-
-[memory]
-command=free --giga | awk 'FNR==2{ printf "%i<span color=\"#ff79c6\"> GiB</span>\n", $7 }'
-interval=2
-label=<span color="#ff79c6">  </span>
-border=#ff79c6
+label=<span color="#a6da95">  </span>
+border=#a6da95
 border_top=1
 border_right=0
 border_bottom=0
 border_left=0
 
 [volume]
-command=pulseaudio-ctl full-status | awk '{ printf "%i<span color=\"#bd93f9\">%</span>\n", $1 }'
+command=awk -F"[][]" '/dB/ { print $2 }' <(amixer sget Master)
 interval=1
-label=<span color="#bd93f9">  </span>
-border=#bd93f9
+label=<span color="#91d7e3">  </span>
+border=#91d7e3
 border_top=1
 border_right=0
 border_bottom=0
 border_left=0
 
 [time_est]
-command=TZ=":US/Eastern" date '+%I : %M %Z' | awk '{ printf "%s<span color=\"#f1fa8c\">%s</span>%s<span color=\"#f1fa8c\"> %s</span>\n", $1, $2, $3, $4 }'
+command=TZ=":US/Eastern" date '+%I : %M %Z' | awk '{ printf "%s<span color=\"#eed49f\">%s</span>%s<span color=\"#eed49f\"> %s</span>\n", $1, $2, $3, $4 }'
 interval=1
-label=<span color="#f1fa8c">  </span>
-border=#f1fa8c
+label=<span color="#eed49f">  </span>
+border=#eed49f
 border_top=1
 border_right=0
 border_bottom=0
 border_left=0
 
 [date]
-command=LC_ALL="en_us.UTF-8" date '+%Y 󰄰  %B %d %A ' | awk '{ printf "%s <span color=\"#ff5555\">%s %s</span> %s <span color=\"#ff5555\">%s%s</span>\n", $1, $2, $3, $4, $5, $6 }'
+command=LC_ALL="en_us.UTF-8" date '+%Y %B %d %A ' | awk '{ printf "%s <span color=\"#ed8796\">%s %s</span> %s <span color=\"#ed8796\">%s%s</span>\n", $1, $2, $3, $4, $5, $6 }'
 interval=60
-label=<span color="#ff5555">  </span>
-border=#ff5555
+label=<span color="#ed8796">  </span>
+border=#ed8796
 border_top=1
 border_right=0
 border_bottom=0
