@@ -1,0 +1,45 @@
+configuration {
+  terminal: "kitty";
+  font: "JetBrainsMono Nerd Font 10";
+  sort: false;
+  threads: 0;
+  click-to-exit: true;
+
+	modi: "drun";
+	case-sensitive: false;
+	cycle: true;
+	filter: "";
+	scroll-method: 0;
+	normalize-match: true;
+	show-icons: true;
+	icon-theme: "Papirus";
+	steal-focus: false;
+  display-drun: "Apps";
+  disable-history: false;
+  sorting-method: "normal";
+
+  timeout {
+    action: "kb-cancel";
+    delay:  0;
+  }
+
+  run,drun {
+    command: "{cmd}";
+    list-command: "";
+    shell-command: "{terminal} -e {cmd}";
+    fallback-icon: "application-x-addon";
+  }
+
+  drun {
+    categories: "";
+    match-fields: "name,generic,exec,categories,keywords";
+    display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+    show-actions: false;
+    url-launcher: "xdg-open";
+    use-desktop-cache: false;
+    reload-desktop-cache: false;
+
+    parse-user: true;
+    parse-system: true;
+  }
+}
