@@ -1,0 +1,57 @@
+HISTFILE=~/.zsh_history
+HISTSIZE=150
+SAVEHIST=1000
+
+export PLUGINS="$HOME/.config/zsh/"
+export VIRTUAL_ENV_DISABLE_PROMPT=true
+export PATH=$PATH:~/lua-language-server/bin/
+# export PATH=$PATH:$HOME/bin
+source <(fzf --zsh)
+
+autoload -U compinit; compinit
+source $PLUGINS/fzf-tab/fzf-tab.plugin.zsh
+source $PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $PLUGINS/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source $HOME/.config/env/bin/activate
+
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+bindkey "^[[3~" delete-char
+bindkey "^[[5~" up-line
+bindkey "^[[6~" down-line
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias comp="sudo rm -rf config.h && make && sudo make install"
+alias code="cd ~/Docs/Coding2/DungeonProject/ && nvim"
+alias jbuilder="javac *.java && java"
+alias neoconfig="cd ~/.config/nvim"
+alias i3conf="cd ~/.config/i3/ && nvim"
+
+autoload -Uz promptinit; promptinit
+prompt pure
+
+nitch
+
+export FZF_COMPLETION_TRIGGER='~~'
+export FZF_COMPLETION_OPTS='--border --info=inline'
+
+_fzf_compgen_path() {
+  fd --hidden --follow --exclude ".git" . "$1"
+}
+
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --exclude ".git __pycache__" . "$1"
+}
+
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf --preview 'tree -C {} | head -200'   "$@" ;;
+    export|unset) fzf --preview "eval 'echo \$'{}"         "$@" ;;
+    ssh)          fzf --preview 'dig {}'                   "$@" ;;
+    *)            fzf --preview 'bat -n --color=always {}' "$@" ;;
+  esac
+}
