@@ -9,7 +9,6 @@ local snippets_by_filetype = {
     { trigger = 'fun', body = 'function ${1:name}(${2:args}) $0 end' },
     { trigger = 'vcmd', body = 'vim.cmd "${1:name}"' },
     { trigger = 'vkey', body = 'vim.keymap.set("${1:n}", "${2:<>}", "${3:cmd}")' },
-    { trigger = 'plu', body = "Plug('${1:name}')" },
   },
 
   java = {

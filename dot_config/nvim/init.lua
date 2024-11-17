@@ -2,19 +2,25 @@ local Plug = vim.fn['plug#']
 
 vim.call('plug#begin')
 
-Plug('windwp/nvim-autopairs')
-Plug('junegunn/fzf')
-Plug('neovim/nvim-lspconfig')
-Plug('nvim-treesitter/nvim-treesitter')
-Plug('hrsh7th/nvim-cmp')
-Plug('hrsh7th/cmp-nvim-lsp')
-Plug('catppuccin/nvim')
-Plug('norcalli/nvim-colorizer.lua')
-Plug('ThePrimeagen/vim-be-good')
+local plugins = {
+  'windwp/nvim-autopairs',
+  'junegunn/fzf',
+  'neovim/nvim-lspconfig',
+  'nvim-treesitter/nvim-treesitter',
+  'hrsh7th/nvim-cmp',
+  'hrsh7th/cmp-nvim-lsp',
+  'catppuccin/nvim',
+  'norcalli/nvim-colorizer.lua'
+}
+
+for _, plugin in pairs(plugins) do
+  Plug(plugin)
+end
 
 vim.call('plug#end')
 
 require("plugins")
+
 local options = {
   completeopt = { "menuone", "noselect", "noinsert", "popup" },
 	shiftwidth = 2,
@@ -58,4 +64,4 @@ vim.cmd "highlight Comment gui=italic"
 vim.cmd "highlight NormalFloat guibg=#333331"
 -- vim.cmd "highlight Pmenu guifg=#FFFFFF guibg=#000000"
 vim.cmd "highlight Function gui=bold,italic"  --guifg=#707070
-vim.cmd "highlight StatusLine guibg=NONE gui=italic"
+vim.cmd "highlight StatusLine guibg=NONE"

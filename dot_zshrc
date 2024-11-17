@@ -5,8 +5,7 @@ SAVEHIST=1000
 export PLUGINS="$HOME/.config/zsh/"
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 export PATH=$PATH:~/lua-language-server/bin/
-export PATH=$PATH:$HOME/bin
-export XDG_DESKTOP_PORTAL_BACKEND=xdg-desktop-portal-hyprland
+# export PATH=$PATH:$HOME/bin
 source <(fzf --zsh)
 
 autoload -U compinit; compinit
@@ -27,33 +26,24 @@ alias comp="sudo rm -rf config.h && make && sudo make install"
 alias code="cd ~/Docs/Coding2/DungeonProject/ && nvim"
 alias jbuilder="javac *.java && java"
 alias neoconfig="cd ~/.config/nvim"
+alias i3conf="cd ~/.config/i3/ && nvim"
 
-autoload -Uz promptinit
-promptinit
+autoload -Uz promptinit; promptinit
 prompt pure
 
 nitch
-# Use ~~ as the trigger sequence instead of the default **
-export FZF_COMPLETION_TRIGGER='~~'
 
-# Options to fzf command
+export FZF_COMPLETION_TRIGGER='~~'
 export FZF_COMPLETION_OPTS='--border --info=inline'
 
-# Use fd (https://github.com/sharkdp/fd) for listing path candidates.
-# - The first argument to the function ($1) is the base path to start traversal
-# - See the source code (completion.{bash,zsh}) for the details.
 _fzf_compgen_path() {
   fd --hidden --follow --exclude ".git" . "$1"
 }
 
-# Use fd to generate the list for directory completion
 _fzf_compgen_dir() {
-  fd --type d --hidden --follow --exclude ".git" . "$1"
+  fd --type d --hidden --follow --exclude ".git __pycache__" . "$1"
 }
 
-# Advanced customization of fzf options via _fzf_comprun function
-# - The first argument to the function is the name of the command.
-# - You should make sure to pass the rest of the arguments to fzf.
 _fzf_comprun() {
   local command=$1
   shift
