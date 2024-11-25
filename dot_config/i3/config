@@ -1,13 +1,15 @@
 #i3 config file (v4)
 
-set $wallpaper ~/Pictures/Wallpapers/Nord_waves.jpg
-set $term kitty
+for_window [class="^.*"] border pixel 0
+font pango: JetBrainsMono Nerd Font 10
+gaps inner 5
+gaps outer 2
 
-exec_always feh --bg-fill $wallpaper 
+exec_always feh --bg-fill ~/Pictures/Wallpapers/Nord_waves.jpg
 exec_always autotiling 
 exec_always picom
 exec_always xrandr --output HDMI-A-0 --mode 1920x1080 --rate 120.0 --right-of eDP 
-exec_always xinput --set-prop 10 "libinput Accel Speed" -0.7
+exec_always xinput --set-prop "Glorious Model O Wireless" "libinput Accel Speed" -0.7
 
 set $ws1 "1" 
 set $ws2 "2" 
@@ -20,17 +22,16 @@ workspace $ws3 output HDMI-A-0 eDP
 workspace $ws4 output HDMI-A-0 eDP
 
 bar {
-  i3bar_command i3bar
   position top 
   status_command i3blocks -c ~/.config/i3/scripts/i3blocks.conf
   colors {
    background #24273a
    # class             border background text
-   focused_workspace   #282828 #91d7e3 #181926
-   active_workspace    #282828 #7dc4e4 #181926
-   inactive_workspace  #282828 #7dc4e4 #181926
-   urgent_workspace    #282828 #ed8796 #BF616A
-   binding_mode        #282828 #eed49f #BF616A
+   focused_workspace   #24273a #91d7e3 #24273a
+   active_workspace    #24273a #7dc4e4 #24273a
+   inactive_workspace  #24273a #7dc4e4 #24273a
+   urgent_workspace    #24273a #ed8796 #BF616A
+   binding_mode        #24273a #eed49f #BF616A
   }
 }
 
@@ -42,10 +43,10 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%-
 bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
-bindsym Mod4+Shift+r restart
 
-bindsym Mod4+Return exec $term
+bindsym Mod4+Shift+r restart
 bindsym Mod4+q kill
+bindsym Mod4+Return exec kitty
 bindsym Mod4+Shift+c exec ~/.config/rofi/powermenu.sh
 bindsym Mod4+p exec ~/.config/rofi/launch.sh
 
@@ -63,8 +64,3 @@ bindsym Mod4+Shift+1 move container to workspace number $ws1
 bindsym Mod4+Shift+2 move container to workspace number $ws2
 bindsym Mod4+Shift+3 move container to workspace number $ws3
 bindsym Mod4+Shift+4 move container to workspace number $ws4
-
-for_window [class="^.*"] border pixel 0
-font pango: JetBrainsMono Nerd Font 10
-gaps inner 5
-gaps outer 2
