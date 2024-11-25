@@ -12,6 +12,7 @@ export PLUGINS="$HOME/.config/zsh/"
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 
 autoload -U compinit; compinit
+fpath+=($HOME/.config/zsh/pure)
 autoload -Uz promptinit; promptinit
 
 source $PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -27,4 +28,4 @@ alias neoconfig="cd ~/.config/nvim"
 alias i3conf="cd ~/.config/i3/ && nvim"
 
 prompt pure
-nitch
+# nitch
