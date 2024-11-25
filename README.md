@@ -21,15 +21,15 @@ git clone https://github.com/DarthMooMancer/dotfiles.git
 cd dotfiles
 ```
 
-Copy files manually -> 
-------------------------
+- Copy files manually -> 
+
 ```
 cp -r .config/* $HOME/.config
 cp .zshrc $HOME
 cp -r Pictures/Wallpapers $HOME/Pictures
 ```
-Or use stow -> 
-------------------
+- Or use stow -> 
+
 ```
 sudo pacman -S stow
 stow . --adopt
