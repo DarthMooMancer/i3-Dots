@@ -1,0 +1,6 @@
+vim.cmd('colorscheme catppuccin-macchiato')
+vim.cmd('highlight Keyword gui=bold')
+vim.cmd('highlight Conditional gui=bold')
+vim.cmd('highlight Repeat gui=bold')
+vim.cmd('highlight Function gui=bold')
+vim.cmd('highlight StatusLine guibg=NONE')
