@@ -1,6 +1,7 @@
 # Before Installation
 
 - This is mainly for Arch Linux and will work on Arch. It may work on other systems but keep that in mind
+- Move the asound.conf to etc if needed and also the main.conf to iwd in /etc/iwd if needed
 
 # Installation
 Packages Needed
