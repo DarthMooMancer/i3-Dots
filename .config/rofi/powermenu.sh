@@ -8,8 +8,6 @@ uptime="`uptime -p | sed -e 's/up //g'`"
 shutdown=''
 reboot=''
 lock=''
-hibernate='󰤄'
-logout=''
 yes=''
 no=''
 
@@ -31,7 +29,7 @@ confirm_exit() {
 }
 
 run_rofi() {
-	echo -e "$lock\n$hibernate\n$logout\n$reboot\n$shutdown" | rofi_cmd
+	echo -e "$lock\n$reboot\n$shutdown" | rofi_cmd
 }
 
 run_cmd() {
@@ -40,8 +38,6 @@ run_cmd() {
 			systemctl poweroff
 		elif [[ $1 == '--reboot' ]]; then
 			systemctl reboot
-		elif [[ $1 == '--hibernate' ]]; then
-			systemctl hibernate
 		elif [[ $1 == '--logout' ]]; then
 			if [[ "$DESKTOP_SESSION" == 'i3' ]]; then
 				i3-msg exit
@@ -59,10 +55,6 @@ case "$(run_rofi)" in
       run_cmd --reboot ;;
     $lock)
       if [[ -x '/usr/bin/i3lock' ]]; then
-        i3lock-fancy
+        i3lock
       fi ;;
-    $hibernate)
-      run_cmd --hibernate ;;
-    $logout)
-      run_cmd --logout ;;
 esac

@@ -1,6 +1,6 @@
 HISTFILE=~/.zsh_history
 HISTSIZE=150
-SAVEHIST=1000
+SAVEHIST=500
 
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
@@ -11,8 +11,8 @@ bindkey "^[[6~" down-line
 export PLUGINS="$HOME/.config/zsh/"
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 
-autoload -U compinit; compinit
 fpath+=($HOME/.config/zsh/pure)
+autoload -U compinit; compinit
 autoload -Uz promptinit; promptinit
 
 source $PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -25,7 +25,5 @@ alias code="cd ~/Docs/Coding2/DungeonProject/ && nvim"
 alias jdir="cd ~/Docs/JavaDev/CodeHS/"
 alias javeb="javac *.java && java"
 alias neoconfig="cd ~/.config/nvim"
-alias i3conf="cd ~/.config/i3/ && nvim"
 
 prompt pure
-# nitch

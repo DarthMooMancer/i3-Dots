@@ -8,7 +8,7 @@ Packages Needed
 Make sure you have yay installed or a package manager for the aur installed
 
 ```
-yay -S xorg-xinput xorg-xrandr acpi autotiling fd brightnessctl i3-wm i3blocks jdtls kitty npm neovim rofi picom-ftlabs-git
+yay -S xorg-xinput xorg-xrandr acpi autotiling fd brightnessctl i3-wm i3lock i3blocks jdtls kitty npm neovim rofi picom-ftlabs-git
 ```
 You will also need to download the old jetbrainsmono nerd fonts before update 3 as update 3 breaks icons. Here is the link https://github.com/ryanoasis/nerd-fonts/releases/tag/v2.3.3
 
