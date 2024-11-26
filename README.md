@@ -35,3 +35,7 @@ cp -r Pictures/Wallpapers $HOME/Pictures
 sudo pacman -S stow
 stow . --adopt
 ```
+
+# Known Issues
+--------------
+-> I know that neovim telescope doesnt work properly, at least on my system. Most likely because I removed an important package.
